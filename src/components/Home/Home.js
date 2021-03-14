@@ -1,10 +1,12 @@
 import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import Posts from '../Posts/Posts';
+import Navbar from '../Navbar/Navbar';
 
 const Home = () => {
     return (
-        
+        <>
+            <Navbar></Navbar>
             <div className="row">
                 <div className="col-md-4 mt-5 pt-5">
                     <Sidebar></Sidebar>
@@ -35,6 +37,7 @@ const Home = () => {
 
                 </div>
             </div>
+        </>
         
     );
 };
