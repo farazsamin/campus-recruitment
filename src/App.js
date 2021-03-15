@@ -8,9 +8,12 @@ import {
   Route
 } from "react-router-dom";
 import Resume from './components/Resume/Resume';
+import Navbar from './components/Navbar/Navbar';
 function App() {
   return (
+    
     <Router>
+    
       <Switch>
         <Route path="/resume">
           <Resume />
