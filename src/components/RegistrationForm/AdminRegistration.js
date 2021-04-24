@@ -9,12 +9,12 @@ const StudentRegistration = () => {
     const [password, setPassword] = useState('')
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     // const [loggedin, setLoggedIn] = useState(true)
-    const handleStudentLogin = (e) => {
+    const handleAdminReg = (e) => {
         e.preventDefault();
-        axios.post('https://iiuc-campus-recuitement-system.herokuapp.com/user/signup', {
-           name : name,
-           email : email,
-           password : password
+        axios.post('https://iiuc-campus-recuitement-system.herokuapp.com/signup/admin', {
+            email : email,
+            name : name,
+            password : password
         }
         )
             .then((response) => {
@@ -31,7 +31,7 @@ const StudentRegistration = () => {
          
     }
     if(isAuthenticated){
-        return <Redirect to="/student_home"></Redirect>
+        return <Redirect to="/admin_home"></Redirect>
     }
     return (
         <div>
@@ -41,13 +41,13 @@ const StudentRegistration = () => {
                     <form>
                         
                         <div class="form-group">
-                            <label htmlFor="exampleInputEmail1">Name Yours :</label>
+                            <label htmlFor="exampleInputEmail1">Name  :</label>
                             <input type="text" class="form-control" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter " onChange={
                             (event) => {
                                 setName(event.target.value);
                             }
                         } />
-                            <small id="emailHelp" class="form-text text-muted">Enter right matric id.</small>
+                           
                         </div>
                         <div class="form-group">
                             <label htmlFor="exampleInputEmail1">Email Id Yours :</label>
@@ -56,7 +56,7 @@ const StudentRegistration = () => {
                                 setEmail(event.target.value);
                             }
                         } />
-                            <small id="emailHelp" class="form-text text-muted">Enter right matric id.</small>
+                           
                         </div>
                         <div class="form-group">
                             <label htmlFor="exampleInputPassword1">Password</label>
@@ -66,7 +66,7 @@ const StudentRegistration = () => {
                             }
                         } />
                         </div>
-                        <button onClick={handleStudentLogin} className="btn btn-primary" disabled={email && password ? false : true}>Log in As Student</button>
+                        <button onClick={handleAdminReg} className="btn btn-primary" disabled={email && password ? false : true}>Registration  As Admin</button>
                     </form>
                 </div>
             </div>

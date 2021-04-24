@@ -9,6 +9,8 @@ const Login = () => {
                 <div className="col-md-6">
                     <Link to="/registration/student"><button type="button" className="btn btn-secondary btn-lg btn-block mb-3">Registration As Student</button></Link>
                     <Link to="/registration/admin"><button type="button" className="btn btn-secondary btn-lg btn-block mb-3">Registration As Admin</button></Link>
+                    <Link to="/registration/alumni"><button type="button" className="btn btn-secondary btn-lg btn-block mb-3">Registration As Alumni</button></Link>
+                    <Link to="/registration/company"><button type="button" className="btn btn-secondary btn-lg btn-block mb-3">Registration As Company</button></Link>
 
                 </div>
                 

@@ -23,6 +23,12 @@ import AllStudentsList from './components/Admin/AllStudentsList/AllStudentsList'
 import AllCompaniesList from './components/Admin/AllCompaniesList/AllCompaniesList';
 import StudentRegistration from './components/RegistrationForm/StudentRegistration';
 import AdminRegistration from './components/RegistrationForm/AdminRegistration'
+import ResumeEdit from './components/Student/ResumeEdit/ResumeEdit';
+import ExperienceShare from './components/Student/ExperienceShare/ExperienceShare';
+import EducationInfo from './components/Student/EducationInfo/EducationInfo';
+import UploadPic from './components/Student/UploadPic/UploadPic';
+import AlumniRegistration from './components/RegistrationForm/AlumniRegistration';
+import CompanyRegistration from './components/RegistrationForm/CompanyRegistration';
 function App() {
   return (
     <Router>
@@ -52,6 +58,12 @@ function App() {
         <Route  path="/registration/admin">
          <AdminRegistration></AdminRegistration>
         </Route>
+        <Route  path="/registration/alumni">
+          <AlumniRegistration></AlumniRegistration>
+        </Route>
+        <Route  path="/registration/company">
+          <CompanyRegistration></CompanyRegistration>
+        </Route>
         <Route exact path = "/student_home">
           <StudentHome></StudentHome>
         </Route>
@@ -70,6 +82,9 @@ function App() {
         <Route exact path = "/admin_home">
           <AdminHome></AdminHome>
         </Route>
+        <Route exact path = "/alumni_home">
+          <AlumniHome></AlumniHome>
+        </Route>
         <Route exact path = "/all_alumnies_list">
          <AllAlumniesList></AllAlumniesList>
         </Route>
@@ -83,6 +98,19 @@ function App() {
 
         <Route exact path="/resume">
           <Resume />
+        </Route>
+        <Route exact path="/resume/edit">
+          <ResumeEdit />
+        </Route>
+        <Route exact path="/resume/experience">
+          <ExperienceShare />
+        </Route>
+        <Route exact path="/resume/education_info">
+          <EducationInfo />
+        </Route>
+        
+        <Route exact path="/resume/upload_profile_pic">
+          <UploadPic />
         </Route>
         
  
