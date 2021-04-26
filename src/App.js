@@ -1,6 +1,6 @@
 
 import './App.css';
-import React from "react";
+import React, { createContext, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,10 +29,14 @@ import EducationInfo from './components/Student/EducationInfo/EducationInfo';
 import UploadPic from './components/Student/UploadPic/UploadPic';
 import AlumniRegistration from './components/RegistrationForm/AlumniRegistration';
 import CompanyRegistration from './components/RegistrationForm/CompanyRegistration';
+import AllJobPosts from './components/Student/AllJobPosts/AllJobPosts';
+
+export const userContext = createContext();
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({})
   return (
+    <userContext.Provider value={[loggedInUser,setLoggedInUser]}>
     <Router>
-    
       <Switch>
         <Route exact path="/">
           <Login/>
@@ -108,14 +112,17 @@ function App() {
         <Route exact path="/resume/education_info">
           <EducationInfo />
         </Route>
-        
         <Route exact path="/resume/upload_profile_pic">
           <UploadPic />
+        </Route>
+        <Route exact path="/all_job_posts">
+          <AllJobPosts></AllJobPosts>
         </Route>
         
  
       </Switch>
     </Router>
+    </userContext.Provider>
   )
 }
 

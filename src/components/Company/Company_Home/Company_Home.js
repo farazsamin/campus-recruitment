@@ -4,22 +4,29 @@ import Posts from '../Posts/Posts';
 import CompanyNavbar from '../Navbar/Navbar';
 import data from '../../../Data/data.json'
 import { post } from 'jquery';
+import { SetToken } from '../../utilities/setToken'
 import axios from 'axios'
 const AlumniHome = () => {
     const [posts, setposts] = useState([]);
     const [postContent, setPostContent] = useState('')
-    const [postImage, setPostImage] = useState()
+    const [postTitle, setPostTitle] = useState('')
     // const [posts, setPosts] = useState([])
     // const [loading, setLoading] = useState(true)
 
-    const handleAddPost = () => {
-        console.log(postContent)
-        axios.post('', {
-            postContent: postContent,
-            postImage : postImage
+    const handleAddPost = (e) => {
+        e.preventDefault(); 
+        axios.post('https://iiuc-campus-recuitement-system.herokuapp.com/job/jobPost', {
+            title : postTitle,
+            description: postContent
+           
         })
             .then((response) => {
                 console.log(response)
+                setPostTitle('')
+                setPostContent('')
+            })
+            .catch((err)=>{
+                console.log(err.response.data.err)
             })
         // window.location.reload();
     }
@@ -32,7 +39,7 @@ const AlumniHome = () => {
     // }, [])
 
     useEffect(() => {
-        setposts(data);
+        SetToken(localStorage.getItem('userToken'));
     }, [])
     return (
         <>
@@ -54,16 +61,17 @@ const AlumniHome = () => {
                 <div className="col-md-6">
                     <div className="form-group">
                         <p>Add Your Post : </p>
+                        <input type="text" name="" id="" onChange={
+                            (event) => {
+                                setPostTitle(event.target.value);
+                            }
+                        }/> <br/>
                         <textarea style={{ width: '600px', height: '100px' }} type="text" name="post-content" id="" onChange={
                             (event) => {
                                 setPostContent(event.target.value);
                             }
                         } /> <br />
-                         <input style={{width: '80%'}} type="file" name="post-image" id="" onChange={
-                            (event) => {
-                                setPostImage(event.target.value);
-                            }
-                        } /> <br/>
+                       
                         <button onClick={handleAddPost} className="btn btn-success mt-3">Add Post</button>
                     </div>
                     {

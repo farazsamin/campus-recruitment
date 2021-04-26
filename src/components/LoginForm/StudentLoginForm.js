@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, Redirect, useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios'
+import { useFormContext } from 'react-hook-form';
+import { userContext } from '../../App';
 const StudentLoginForm = () => {
     const history = useHistory();
     const location = useLocation();
@@ -8,10 +10,9 @@ const StudentLoginForm = () => {
     const [password, setPassword] = useState('')
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     // const [loggedin, setLoggedIn] = useState(false)
-    
+    const [loggedInUser, setLoggedInUser] = useContext(userContext)
     const handleStudentLogin = (e) => {
         e.preventDefault();
-        console.log(email + password)
         axios.post('https://iiuc-campus-recuitement-system.herokuapp.com/user/login', {
            email : email,
            password : password
@@ -19,6 +20,9 @@ const StudentLoginForm = () => {
         )
             .then((response) => {
                 console.log(response)
+                const {_id,email,name}= response.data.user;
+                const signedInUser = {name : name, email :email, id : _id};
+                setLoggedInUser(signedInUser)
                 setIsAuthenticated(true)
                 localStorage.setItem('userToken',response.data.token)
             })

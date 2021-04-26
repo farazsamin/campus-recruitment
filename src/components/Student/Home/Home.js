@@ -8,6 +8,7 @@ import axios from 'axios'
 import { Redirect } from 'react-router';
 import { SetToken } from '../../utilities/setToken';
 import e from 'cors';
+import { Link } from 'react-router-dom';
 const Home = () => {
     // const [posts, setposts] = useState([]);
     const [description, setDescription] = useState('')
@@ -65,14 +66,7 @@ const Home = () => {
                     <Sidebar></Sidebar>
                     <Sidebar></Sidebar>
                     <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
+                    <Link to="all_job_posts"><button className="btn btn-primary lg ml-2 mt-5 p-4">See All Job Posts</button></Link>
                 </div>
                 <div className="col-md-6">
                     <div className="form-group">
