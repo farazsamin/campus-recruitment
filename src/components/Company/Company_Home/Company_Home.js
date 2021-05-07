@@ -1,35 +1,35 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../Sidebar/Sidebar';
 import Posts from '../Posts/Posts';
 import CompanyNavbar from '../Navbar/Navbar';
-import data from '../../../Data/data.json'
-import { post } from 'jquery';
 import { SetToken } from '../../utilities/setToken'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 const AlumniHome = () => {
     const [posts, setposts] = useState([]);
     const [postContent, setPostContent] = useState('')
     const [postTitle, setPostTitle] = useState('')
+   
     // const [posts, setPosts] = useState([])
     // const [loading, setLoading] = useState(true)
 
     const handleAddPost = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         axios.post('https://iiuc-campus-recuitement-system.herokuapp.com/job/jobPost', {
-            title : postTitle,
+            title: postTitle,
             description: postContent
-           
+
         })
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 setPostTitle('')
                 setPostContent('')
             })
-            .catch((err)=>{
+            .catch((err) => {
                 console.log(err.response.data.err)
             })
         // window.location.reload();
     }
+
 
     // useEffect(() => {
     //     axios.get('').then((response) => {
@@ -45,18 +45,8 @@ const AlumniHome = () => {
         <>
             <CompanyNavbar></CompanyNavbar>
             <div className="row">
-                <div className="col-md-4 mt-5 pt-5">
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
-                    <Sidebar></Sidebar>
+                <div className="col-md-4  mt-5 pt-5">
+                    <Link to="/company/job_post"> <button className="btn btn-success">My Job Posts</button></Link>
                 </div>
                 <div className="col-md-6">
                     <div className="form-group">
@@ -65,13 +55,13 @@ const AlumniHome = () => {
                             (event) => {
                                 setPostTitle(event.target.value);
                             }
-                        }/> <br/>
+                        } /> <br />
                         <textarea style={{ width: '600px', height: '100px' }} type="text" name="post-content" id="" onChange={
                             (event) => {
                                 setPostContent(event.target.value);
                             }
                         } /> <br />
-                       
+
                         <button onClick={handleAddPost} className="btn btn-success mt-3">Add Post</button>
                     </div>
                     {

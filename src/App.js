@@ -30,6 +30,7 @@ import UploadPic from './components/Student/UploadPic/UploadPic';
 import AlumniRegistration from './components/RegistrationForm/AlumniRegistration';
 import CompanyRegistration from './components/RegistrationForm/CompanyRegistration';
 import AllJobPosts from './components/Student/AllJobPosts/AllJobPosts';
+import OwnJobPost from './components/Company/Company_Home/OwnJobPost/OwnJobPost';
 
 export const userContext = createContext();
 function App() {
@@ -118,6 +119,13 @@ function App() {
         <Route exact path="/all_job_posts">
           <AllJobPosts></AllJobPosts>
         </Route>
+
+
+        {/* Company */}
+        <Route  path="/company/job_post">
+          <OwnJobPost></OwnJobPost>
+        </Route>
+
         
  
       </Switch>
