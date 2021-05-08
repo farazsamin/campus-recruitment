@@ -31,6 +31,8 @@ import AlumniRegistration from './components/RegistrationForm/AlumniRegistration
 import CompanyRegistration from './components/RegistrationForm/CompanyRegistration';
 import AllJobPosts from './components/Student/AllJobPosts/AllJobPosts';
 import OwnJobPost from './components/Company/Company_Home/OwnJobPost/OwnJobPost';
+import Company_About from './components/Company/Company_About/Company_About';
+import CompanyInfoForm from './components/Company/Company_About/CompanyInfoForm/CompanyInfoForm';
 
 export const userContext = createContext();
 function App() {
@@ -78,12 +80,7 @@ function App() {
         <Route exact path = "/alumni_list">
           <AlumniList></AlumniList>
         </Route>
-        <Route exact path = "/company_home">
-          <CompanyHome></CompanyHome>
-        </Route>
-        <Route exact path = "/company_about">
-         <CompanyAbout></CompanyAbout>
-        </Route>
+        
         <Route exact path = "/admin_home">
           <AdminHome></AdminHome>
         </Route>
@@ -124,6 +121,15 @@ function App() {
         {/* Company */}
         <Route  path="/company/job_post">
           <OwnJobPost></OwnJobPost>
+        </Route>
+        <Route exact path = "/company_home">
+          <CompanyHome></CompanyHome>
+        </Route>
+        <Route exact path = "/company_about">
+         <CompanyAbout></CompanyAbout>
+        </Route>
+        <Route exact path = "/company/add_info">
+          <CompanyInfoForm></CompanyInfoForm>
         </Route>
 
         
