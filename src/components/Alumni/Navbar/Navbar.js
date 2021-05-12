@@ -22,6 +22,9 @@ const AlumniNavbar = () => {
                         <li className="nav-item active">
                             <Link className="nav-link" to="/alumni_list">All Alumnies</Link>
                         </li>
+                        <li className="nav-item active">
+                            <Link className="nav-link" to="/profile/alumni/me">My Profile</Link>
+                        </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/login">Logout</a>
                         </li>

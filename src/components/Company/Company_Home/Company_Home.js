@@ -8,9 +8,11 @@ const AlumniHome = () => {
     const [posts, setposts] = useState([]);
     const [postContent, setPostContent] = useState('')
     const [postTitle, setPostTitle] = useState('')
-   
+  
     // const [posts, setPosts] = useState([])
     // const [loading, setLoading] = useState(true)
+
+ 
 
     const handleAddPost = (e) => {
         e.preventDefault();
@@ -47,6 +49,7 @@ const AlumniHome = () => {
             <div className="row">
                 <div className="col-md-4  mt-5 pt-5">
                     <Link to="/company/job_post"> <button className="btn btn-success">My Job Posts</button></Link>
+                   
                 </div>
                 <div className="col-md-6">
                     <div className="form-group">
